@@ -1,6 +1,6 @@
 # Markdown heading
 
-<h1>18.6 Commit best practices</h1>
+<h2>18.6 Commit best practices</h2>
 
 Ideally, each commit should be minimal but complete:
 
