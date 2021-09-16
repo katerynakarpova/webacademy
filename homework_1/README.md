@@ -2,6 +2,8 @@
 
 <h2>18.6 Commit best practices</h2>
 
+<https://github.com/katerynakarpova/webacademy/tree/main/homework_1>
+
 Ideally, each commit should be minimal but complete:
 
 Minimal: A commit should only contain changes related to a single problem. This will make it easier to understand the commit at a glance, and to describe it with a simple message. If you should discover a new problem, you should do a separate commit.
