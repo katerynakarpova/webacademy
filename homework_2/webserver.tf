@@ -14,19 +14,17 @@ provider "aws" {
 resource "aws_instance" "my_webserver" {
   ami = "ami-07df274a488ca9195"    #Amazon Linux AMI
   instance_type = "t3.micro"
-  availability_zone = "eu-central-1"
-  #vpc_security_group_ids = ["sg-06b113f865b048168"]  #security group attached to this instance if security group is known
+  /*availability_zone = "eu-central-1a"
+  vpc_security_group_ids = ["sg-06b113f865b048168"]  #security group attached to this instance if security group is known */
   vpc_security_group_ids = ["${aws_security_group.my_webserver.id}"] #refres to the security group which will be craeted below
   user_data =<<-EOF
 #!/bin/bash
 sudo yum install httpd -y 
 sudo systemctl start httpd
 sudo systemctl enable httpd
-myip=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
-echo "<h2>WebServer with IP: $myip</h2><br>Build by Terraform using External Script!"  >  /var/www/html/index.html
-echo "<br><font color="blue">Hello WebAcademy!!" >> /var/www/html/index.html
-sudo service httpd start
-chkconfig httpd on
+myip=`curl http://169.254.169.254/latest/meta-deta/local-ipv4`
+sudo chmod -R 777 /var/www
+echo "<h2>Webserver with IP": $myip</h2><br>Build by Terrfaorm!" > /var/www/html/index.html
 EOF
 
 tags = {
@@ -99,3 +97,9 @@ resource "aws_security_group" "my_webserver" {
   Owner = "Kateryna Karpova"
  }
 }
+
+/*
+resource "aws_key_pair" "deployer" {
+  key_name   = "webserfer"
+}
+*/
