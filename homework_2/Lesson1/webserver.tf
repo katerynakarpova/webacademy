@@ -25,7 +25,6 @@ sudo systemctl start httpd
 sudo systemctl enable httpd
 sudo chmod -R 777 /var/www
 echo "<h2>Webserver</h2><br>Build by Terrfaorm!" > /var/www/html/index.html
-chkconfig httpd on
 EOF
 
 tags = {
